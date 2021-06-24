@@ -34,6 +34,7 @@ RectTransform:
   - {fileID: 3742405349581441789}
   - {fileID: 6139694519406959597}
   - {fileID: 8992333296694978995}
+  - {fileID: 1934244916529395506}
   m_Father: {fileID: 2769566965037291600}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -282,7 +283,7 @@ GameObject:
   - component: {fileID: 1482953040639409546}
   - component: {fileID: 2453968233867816321}
   m_Layer: 5
-  m_Name: MoveLightningPanel (2)
+  m_Name: MusicPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,6 +439,7 @@ GameObject:
   - component: {fileID: 6370107436371861024}
   - component: {fileID: 5462468957571612726}
   - component: {fileID: 3852302600886754718}
+  - component: {fileID: 9030633323508503450}
   m_Layer: 5
   m_Name: PlayerChipBtn
   m_TagString: Untagged
@@ -546,7 +548,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5462468957571612726}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: ChooseChip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9030633323508503450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166756223360817664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89dc0b8153eee714692d792f5e7c078c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1865732690788006269
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +771,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1242468381190056411}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: ResetSettingsData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2481037707176900845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1060,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5302662294111447470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: ChooseChip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3421819660758171554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,9 +1194,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3421819660758171554}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 6183872674849764599}
+        m_TargetAssemblyTypeName: DiceRollChecker, Assembly-CSharp
+        m_MethodName: ChangeDiceState
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1155,18 +1205,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5799842518392038183}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &3473785561170381519
 GameObject:
@@ -1570,6 +1608,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7a88431039d2a4680da7469901ccb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlSettings: 0
+  music: 0
+  sound: 0
+  autoDiceRolling: 0
 --- !u!1 &4321950433234297744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,7 +1770,7 @@ GameObject:
   - component: {fileID: 6482978475213184992}
   - component: {fileID: 2642234956784730053}
   m_Layer: 5
-  m_Name: MoveLightningPanel (1)
+  m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1872,7 +1914,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0410\u0412\u0422\u041E\u0411\u0420\u041E\u0421\u041E\u041A\n\u041A\u0423\u0411\u0418\u041A\u041E\u0412"
---- !u!114 &1845365631701153306
+--- !u!114 &2953516173057000242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2005,9 +2047,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3421819660758171554}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 6183872674849764599}
+        m_TargetAssemblyTypeName: DiceRollChecker, Assembly-CSharp
+        m_MethodName: ChangeDiceState
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2016,18 +2058,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 5799842518392038183}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6152984886659655148
 GameObject:
@@ -2242,6 +2272,56 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\n\u0424\u0418\u0428\u041A\u0410"
+--- !u!1 &6414125913206904819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1934244916529395506}
+  - component: {fileID: 6183872674849764599}
+  m_Layer: 5
+  m_Name: DiceSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1934244916529395506
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414125913206904819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 60377364}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6183872674849764599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414125913206904819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31029b7f7e1bb0f4780efefd9761989b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeDice: {fileID: 3421819660758171554}
+  inactiveDice: {fileID: 5799842518392038183}
 --- !u!1 &6677961612093063106
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,27 +3090,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2699274694622882214, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2699274694622882214, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2699274694622882214, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 52.00467
       objectReference: {fileID: 0}
     - target: {fileID: 2699274694622882214, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 73.44
       objectReference: {fileID: 0}
     - target: {fileID: 2699274694622882214, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 103.02168
       objectReference: {fileID: 0}
     - target: {fileID: 2699274694622882214, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -36.72
       objectReference: {fileID: 0}
     - target: {fileID: 2908367183419604164, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3086,26 +3166,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5025750641984547965, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5025750641984547965, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5025750641984547965, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 38.964672
       objectReference: {fileID: 0}
     - target: {fileID: 5025750641984547965, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 73.44
       objectReference: {fileID: 0}
     - target: {fileID: 5025750641984547965, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 57.53701
       objectReference: {fileID: 0}
     - target: {fileID: 5025750641984547965, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: -36.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228978619257448025, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5630780512754291575, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
@@ -3138,27 +3222,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6631755199321376827, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6631755199321376827, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6631755199321376827, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 38.054672
       objectReference: {fileID: 0}
     - target: {fileID: 6631755199321376827, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 73.44
       objectReference: {fileID: 0}
     - target: {fileID: 6631755199321376827, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 19.027336
       objectReference: {fileID: 0}
     - target: {fileID: 6631755199321376827, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -36.72
       objectReference: {fileID: 0}
     - target: {fileID: 7640365665777848724, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_RootOrder
@@ -3198,14 +3282,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
---- !u!1 &2769566965622344197 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2214370123062771450, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
-  m_PrefabInstance: {fileID: 4095038278673593599}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2769566965037291600 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2214370123580648623, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
+  m_PrefabInstance: {fileID: 4095038278673593599}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2769566965622344197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2214370123062771450, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
   m_PrefabInstance: {fileID: 4095038278673593599}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4857950898172525259
@@ -3313,7 +3397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723938188493448257, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
       propertyPath: m_Name
-      value: BaseSwitcher
+      value: SoundSwitcher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
@@ -3337,7 +3421,7 @@ PrefabInstance:
     - target: {fileID: 2934486334186513164, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1845365631701153306}
+      objectReference: {fileID: 2953516173057000242}
     - target: {fileID: 2934486334186513164, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnSwitch
@@ -3432,17 +3516,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723938188493448257, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
       propertyPath: m_Name
-      value: BaseSwitcher
+      value: MusicSwitcher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
---- !u!1 &1464649617863164681 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6723938188493448257, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
-  m_PrefabInstance: {fileID: 5261120503068796744}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1776869236021527389 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5885065751946241045, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
+  m_PrefabInstance: {fileID: 5261120503068796744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1464649617863164681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6723938188493448257, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
   m_PrefabInstance: {fileID: 5261120503068796744}
   m_PrefabAsset: {fileID: 0}

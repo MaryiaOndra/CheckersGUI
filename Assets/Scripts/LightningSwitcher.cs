@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class LightningSwitcher : BaseSwitcher
 {
-    protected override string ParamName => PrefsKeys.Light_;
+    public override string ParamName => PrefsKeys.Light_;
 }

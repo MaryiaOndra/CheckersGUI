@@ -7,7 +7,7 @@ public abstract class BasePanel : MonoBehaviour
     readonly int CLOSE_TRIGGER = Animator.StringToHash("Close");
     Animator panelAnimator;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         panelAnimator = GetComponent<Animator>();
     }
@@ -15,7 +15,7 @@ public abstract class BasePanel : MonoBehaviour
     private void OnEnable()
     {
         var _closePanelListener = panelAnimator.GetBehaviour<ClosePanelListener>();
-        _closePanelListener.ClosePanelAction = DisablePanel;
+        _closePanelListener.ClosePanelAction = DiactivatePanel;
     }
 
     public void ClosePanel()
@@ -23,8 +23,13 @@ public abstract class BasePanel : MonoBehaviour
         panelAnimator.SetTrigger(CLOSE_TRIGGER);
     }
 
-    void DisablePanel()
+    public void DiactivatePanel()
     {
         gameObject.SetActive(false);
+    }
+
+    public void ActivatePanel() 
+    {
+        gameObject.SetActive(true);
     }
 }

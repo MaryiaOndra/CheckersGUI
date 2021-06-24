@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class SoundSwitcher : BaseSwitcher
 {
-    protected override string ParamName => PrefsKeys.Sound_;
+    public override string ParamName => PrefsKeys.Sound_;
 
 }

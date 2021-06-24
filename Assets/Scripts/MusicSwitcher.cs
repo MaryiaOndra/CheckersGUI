@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class MusicSwitcher : BaseSwitcher
 {
-    protected override string ParamName => PrefsKeys.Music_;
+    public override string ParamName => PrefsKeys.Music_;
 }
