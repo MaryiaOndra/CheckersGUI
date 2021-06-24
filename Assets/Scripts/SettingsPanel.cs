@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingsPanel : MonoBehaviour
+public class SettingsPanel : BasePanel
 {
-    public void ClosePanel() 
-    {
-    
-    
-    }
+
 }
