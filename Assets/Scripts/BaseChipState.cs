@@ -11,8 +11,11 @@ public abstract class BaseChipState : MonoBehaviour
 
     Button button;
 
+    public Sprite ChipSprite => chipImg.sprite;
     public  abstract ChipsState ChipState { get; }
     public Action<ChipsState> NextStateAction { get; internal set; }
+    public Action ChooseChipAction { get; internal set; }
+
     protected abstract void OnButtonPressed();
 
     private void OnEnable()
@@ -30,7 +33,7 @@ public abstract class BaseChipState : MonoBehaviour
         button = _button;
     }
 
-    internal void Activate()
+    public virtual void Activate()
     {
         gameObject.SetActive(true);
     }

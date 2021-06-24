@@ -8,6 +8,7 @@ public class UnlockedState : BaseChipState
 
     protected override void OnButtonPressed()
     {
+        ChooseChipAction.Invoke();
         NextStateAction.Invoke(ChipsState.Choosen);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,32 +10,28 @@ public class ChooseChipPanel : BasePanel
 
     public Sprite SpriteToChange { get; private set; }
 
-    public void ActivatePanel(int _index)
+    public void ActivatePanel( int _index, Sprite _sprite)
     {
         base.ActivatePanel();
-
-        chipContainer.InstantiateChips();
+                
         ResetShipsState(chipContainer.ChipsList, _index);
-        SpriteToChange = chipContainer.GetSprite(_index);
+        SpriteToChange = _sprite;
+        chipContainer.ChipsList.ForEach(_ch => _ch.OnChosen = OnChoosenChip);
     }
 
-    public void Setup()
+    void OnChoosenChip(Chip _chip) 
     {
-        if (GetChipsState(0) == ChipsState.Locked)
-        {
-            SetChipsState(0, ChipsState.Unlocked);
-        }
+        SpriteToChange = _chip.CurrentState.ChipSprite;
+
+        FromChoosenToUnlock();
     }
 
-    public ChipsState GetChipsState(int _order)
+    public void FromChoosenToUnlock() 
     {
-        int _levelIntState = AppPrefs.GetInt(PrefsKeys.Chip_ + _order);
-        return (ChipsState)_levelIntState;
-    }
+        var _chip = chipContainer.ChipsList.Find(_ch => _ch.CurrentState.ChipState == ChipsState.Choosen);
 
-    public void SetChipsState(int _order, ChipsState _chipState)
-    {
-        AppPrefs.SetInt(PrefsKeys.Chip_ + _order, (int)_chipState);
+        if (_chip)
+            _chip.OnNextStateRequest(ChipsState.Unlocked);
     }
 
     public void ResetShipsState(List<Chip> _chips, int _index)
@@ -44,6 +41,9 @@ public class ChooseChipPanel : BasePanel
             _chips[i].ResetState(i, _index);
         }
     }
+
+
+
 }
 
 public enum ChipsState

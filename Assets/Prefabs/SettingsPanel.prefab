@@ -550,8 +550,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1100397490724322825}
         m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
-        m_MethodName: ChooseChip
-        m_Mode: 3
+        m_MethodName: ChoosePlayerChip
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1050,8 +1050,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1100397490724322825}
         m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
-        m_MethodName: ChooseChip
-        m_Mode: 3
+        m_MethodName: ChooseEnemyChip
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1599,6 +1599,8 @@ MonoBehaviour:
   music: 0
   sound: 0
   autoDiceRolling: 0
+  PlayerChipImg: {fileID: 5462468957571612726}
+  EnemyChipImg: {fileID: 5302662294111447470}
 --- !u!1 &4321950433234297744
 GameObject:
   m_ObjectHideFlags: 0

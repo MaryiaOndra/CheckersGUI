@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class SettingsPanel : BasePanel
 {
+    const int PLAYER_CHIP_INDEX = 0;
+    const int ENEMY_CHIP_INDEX = 1;
+
     [Header("Switches")]
     [Tooltip("Switch on control settings for control switches from inspector")]
     [SerializeField]
@@ -18,15 +21,20 @@ public class SettingsPanel : BasePanel
     [SerializeField]
     bool sound;
     [SerializeField]
-    bool autoDiceRolling;   
+    bool autoDiceRolling;
+    [Space]
+    [SerializeField]
+    Image PlayerChipImg;
+    [SerializeField]
+    Image EnemyChipImg;
 
     List<BaseSwitcher> baseSwitchers;
     BaseSwitcher musicSwitcher;   
     BaseSwitcher soundSwitcher;   
     BaseSwitcher autoDiceRollingSwitcher;
 
-    [SerializeField]
-    public Action<int> ChangePanelAction;
+
+    public Action<int, Sprite> ChangePanelAction;
 
     protected override void Awake()
     {
@@ -38,6 +46,7 @@ public class SettingsPanel : BasePanel
         autoDiceRollingSwitcher = baseSwitchers.Find(_f => _f.ParamName == PrefsKeys.DiceState_);
 
     }
+
     public void ResetSettingsData()
     {
         baseSwitchers.ForEach(_sw => _sw.ResetAction.Invoke(true));
@@ -53,9 +62,17 @@ public class SettingsPanel : BasePanel
         }
     }
 
-    public void ChooseChip(int _index) 
+    public void ChooseEnemyChip() 
     {
-        ChangePanelAction.Invoke(_index );
+        var _sprite = EnemyChipImg.sprite;
+        ChangePanelAction.Invoke(ENEMY_CHIP_INDEX, _sprite);
         DiactivatePanel();      
+    }
+
+    public void ChoosePlayerChip() 
+    {
+        var _sprite = PlayerChipImg.sprite;
+        ChangePanelAction.Invoke(PLAYER_CHIP_INDEX, _sprite);
+        DiactivatePanel();
     }
 }
