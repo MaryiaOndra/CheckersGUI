@@ -26,7 +26,7 @@ public class SettingsPanel : BasePanel
     BaseSwitcher autoDiceRollingSwitcher;
 
     [SerializeField]
-    public Action ChangePanelAction;
+    public Action<int> ChangePanelAction;
 
     protected override void Awake()
     {
@@ -53,9 +53,9 @@ public class SettingsPanel : BasePanel
         }
     }
 
-    public void ChooseChip() 
+    public void ChooseChip(int _index) 
     {
-        ChangePanelAction.Invoke();
+        ChangePanelAction.Invoke(_index );
         DiactivatePanel();      
     }
 }

@@ -774,7 +774,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f6d3b42eeae96944095fe9a81bd717b7, type: 3}
   chipPrefab: {fileID: 1152893801719506934, guid: 40e6e1d886bf98646b588c35deb82885, type: 3}
   containerTr: {fileID: 4962461392492272923}
-  chips: []
 --- !u!1 &7539265323466020437
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b566e03a8221e74aaaca6c0ce295480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chipContent: {fileID: 3405533415642164842}
+  chipContainer: {fileID: 3405533415642164842}
 --- !u!1001 &7542894003046461727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -998,6 +997,14 @@ PrefabInstance:
     - target: {fileID: 2214370123081093235, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2214370123580648623, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 2214370123580648623, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2614225773404781408, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_AnchorMax.y

@@ -11,16 +11,25 @@ public class ChipContainer : MonoBehaviour
     [SerializeField]
     Transform containerTr;
 
-    public List<Chip> chips;
+    public List<Chip> ChipsList { get; private set; }
 
-    public void ShowChips()
+    public Sprite GetSprite(int _index) 
     {
+        return chipsSprites[_index];
+    }
+
+    public void InstantiateChips()
+    {
+        var _chips = new List<Chip>();
+
         for (int i = 0; i < chipsSprites.Count; i++)
         {
             var _chipGO = Instantiate(chipPrefab, containerTr);
             var _chip = _chipGO.GetComponent<Chip>();
-            chips.Add(_chip);
-            _chip.Setup(chipsSprites[i]);
+            _chips.Add(_chip);
+            _chip.Setup(chipsSprites[i], i);
         }
+
+        ChipsList = _chips;
     }
 }

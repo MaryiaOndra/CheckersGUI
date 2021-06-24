@@ -5,11 +5,17 @@ using UnityEngine;
 public class ChooseChipPanel : BasePanel
 {
     [SerializeField]
-    ChipContainer chipContent;
+    ChipContainer chipContainer;
 
-    private void Start()
+    public Sprite SpriteToChange { get; private set; }
+
+    public void ActivatePanel(int _index)
     {
-        chipContent.ShowChips();
+        base.ActivatePanel();
+
+        chipContainer.InstantiateChips();
+        ResetShipsState(chipContainer.ChipsList, _index);
+        SpriteToChange = chipContainer.GetSprite(_index);
     }
 
     public void Setup()
@@ -17,7 +23,6 @@ public class ChooseChipPanel : BasePanel
         if (GetChipsState(0) == ChipsState.Locked)
         {
             SetChipsState(0, ChipsState.Unlocked);
-            ;
         }
     }
 
@@ -30,6 +35,14 @@ public class ChooseChipPanel : BasePanel
     public void SetChipsState(int _order, ChipsState _chipState)
     {
         AppPrefs.SetInt(PrefsKeys.Chip_ + _order, (int)_chipState);
+    }
+
+    public void ResetShipsState(List<Chip> _chips, int _index)
+    {
+        for (int i = 0; i < _chips.Count; i++)
+        {
+            _chips[i].ResetState(i, _index);
+        }
     }
 }
 

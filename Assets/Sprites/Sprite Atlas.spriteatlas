@@ -32,7 +32,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 7ab516ac474422a4b9b47218c6aaf8b4, type: 3}
-    totalSpriteSurfaceArea: 3372199
+    totalSpriteSurfaceArea: 3363967
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -47,7 +47,7 @@ SpriteAtlas:
   - {fileID: 116431485575888442, guid: 9b6dc953c1c07124d8efdaee228893c0, type: 3}
   - {fileID: 21300000, guid: 855b7db4519bef74ab4248d3e6d62f15, type: 3}
   - {fileID: 21300000, guid: 226f78951437e924186348fa39a275d4, type: 3}
-  - {fileID: 21300000, guid: 45b1a9b5103b0994ca1fa1ba3814138a, type: 3}
+  - {fileID: 8654228272798720389, guid: 45b1a9b5103b0994ca1fa1ba3814138a, type: 3}
   - {fileID: 21300000, guid: fbda0fc5a685b984384fd42970e11ae7, type: 3}
   - {fileID: -501968942713344315, guid: 5e886cd5ff9344644a3358a6e269c7d2, type: 3}
   - {fileID: 21300000, guid: 541810e6076162346b29180b3244c83b, type: 3}
@@ -79,7 +79,7 @@ SpriteAtlas:
   - chip-bg_0
   - set-item-green
   - chip-1
-  - chip-bg-current
+  - chip-bg-current_0
   - chip-6
   - set-item-bg-narrow_0
   - ok

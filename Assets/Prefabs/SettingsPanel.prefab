@@ -439,7 +439,6 @@ GameObject:
   - component: {fileID: 6370107436371861024}
   - component: {fileID: 5462468957571612726}
   - component: {fileID: 3852302600886754718}
-  - component: {fileID: 9030633323508503450}
   m_Layer: 5
   m_Name: PlayerChipBtn
   m_TagString: Untagged
@@ -552,7 +551,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1100397490724322825}
         m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
         m_MethodName: ChooseChip
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -561,18 +560,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9030633323508503450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166756223360817664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89dc0b8153eee714692d792f5e7c078c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1865732690788006269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,11 +1051,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1100397490724322825}
         m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
         m_MethodName: ChooseChip
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3520,13 +3507,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
---- !u!224 &1776869236021527389 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5885065751946241045, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
-  m_PrefabInstance: {fileID: 5261120503068796744}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1464649617863164681 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6723938188493448257, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
+  m_PrefabInstance: {fileID: 5261120503068796744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1776869236021527389 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5885065751946241045, guid: 2a321ae03cf54894196d62c7d899d72d, type: 3}
   m_PrefabInstance: {fileID: 5261120503068796744}
   m_PrefabAsset: {fileID: 0}
