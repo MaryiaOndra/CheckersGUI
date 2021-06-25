@@ -8,7 +8,7 @@ public class PanelController : MonoBehaviour
     SettingsPanel settingsPanel;
 
     [SerializeField]
-    ChooseChipPanel chooseChipPanel;
+    SelectChipPanel chooseChipPanel;
 
     private void Awake()
     {

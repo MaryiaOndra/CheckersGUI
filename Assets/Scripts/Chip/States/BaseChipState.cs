@@ -16,6 +16,7 @@ public abstract class BaseChipState : MonoBehaviour
     public  abstract ChipsState ChipState { get; }
     public Action<ChipsState> NextStateAction { get; internal set; }
     public Action ChooseChipAction { get; internal set; }
+    public Action ChangeChipState { get; internal set; }
 
     protected abstract void OnButtonPressed();
 

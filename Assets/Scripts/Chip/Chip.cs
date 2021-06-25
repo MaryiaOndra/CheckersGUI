@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Chip : MonoBehaviour
 {
     const int UNLOCK_AMOUNT = 2;
+    const int PLAYER_INDEX = 0;
+    const int ENEMY_INDEX = 1;
 
     List<BaseChipState> chipStates;
     BaseChipState currentState;
@@ -16,6 +18,7 @@ public class Chip : MonoBehaviour
     public BaseChipState CurrentState => currentState;
 
     public Action<Chip> OnChosen;
+    public Action ChangeStateAction;
 
     public void Setup(Sprite _chipSprite, int _index)
     {
@@ -27,13 +30,33 @@ public class Chip : MonoBehaviour
         {
             _state.Setup(_chipSprite, chipBtn, _index);
             _state.NextStateAction = OnNextStateRequest;
-            _state.ChooseChipAction = OnChooseAction;            
+            _state.ChooseChipAction = OnChooseAction;
+            _state.ChangeChipState = OnChangeState;
         });
 
-        var _chipState = GetChipsState(_index);
 
-        currentState = chipStates.Find(_state => _state.ChipState == _chipState);
-        currentState.Activate();
+        if (AppPrefs.HasKey(PrefsKeys.Chip_ + _index))
+        {
+            var _chipState = GetChipsState(_index);
+            currentState = chipStates.Find(_state => _state.ChipState == _chipState);
+        }
+        else if (_index == PLAYER_INDEX || _index == ENEMY_INDEX)
+        {
+            currentState = chipStates.Find(_s => _s.ChipState == ChipsState.Unlocked);
+        }
+        else 
+        {
+            currentState = chipStates.Find(_s => _s.ChipState == ChipsState.Locked);
+        }
+
+        //currentState = chipStates.Find(_state => _state.ChipState == _chipState);
+        //currentState.Activate();
+    }
+
+    void OnChangeState()
+    {
+        Debug.Log("CHANGE STATE");
+        ChangeStateAction.Invoke();
     }
 
     public void OnChooseAction()
@@ -47,6 +70,8 @@ public class Chip : MonoBehaviour
         currentState.Diactivate();
         currentState = chipStates.Find(_s => _s.ChipState == _state);
         currentState.Activate();
+
+        SetChipsState(ChipIndex, _state);
     }
 
     public void ResetState(int _index, int _indexToCheck) 
@@ -57,7 +82,7 @@ public class Chip : MonoBehaviour
             currentState.NextStateAction.Invoke(ChipsState.Unlocked);
 
         if (_indexToCheck == ChipIndex)
-            currentState.NextStateAction.Invoke(ChipsState.Choosen);
+            currentState.NextStateAction.Invoke(ChipsState.Selected);
     }
 
     public ChipsState GetChipsState(int _order)

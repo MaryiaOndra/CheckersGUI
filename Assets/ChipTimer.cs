@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ChipTimer : MonoBehaviour
 {
-    const float START_TIME = 10.3f;
+    const float START_TIME = 20f;
 
     TMP_Text timerText;
     float secondTillUnlock;
@@ -17,14 +17,6 @@ public class ChipTimer : MonoBehaviour
     private void OnEnable()
     {
         timerText = GetComponentInChildren<TMP_Text>(true);
-
-
-        //secondTillUnlock = GetTime();
-    }
-
-    private void OnDisable()
-    {
-        
     }
 
     public void StartTimer()
@@ -57,26 +49,34 @@ public class ChipTimer : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void SetTime(int _chipIndx) 
+    public void SetTime(int _chipIndx)
     {
-        AppPrefs.SetString(PrefsKeys.Time_ + _chipIndx, DateTime.Now.ToShortTimeString());
+        var _key = PrefsKeys.Time_ + _chipIndx;
+        var _timeLeft = PrefsKeys.TimeLeft + _chipIndx;
+        long currenttime = DateTime.UtcNow.Ticks;
+
+        AppPrefs.SetString(_key, currenttime.ToString());
+        AppPrefs.SetFloat(_timeLeft, secondTillUnlock);
+
+        timerisOn = false;
     }
 
-    public void GetStartTime(int _chipIndx) 
+    public void GetStartTime(int _chipIndx)
     {
-        string _timeString = AppPrefs.GetString(PrefsKeys.Time_ + _chipIndx);
+        var _key = PrefsKeys.Time_ + _chipIndx;
+        var _timeLeft = PrefsKeys.TimeLeft + _chipIndx;
 
-        if (_timeString == string.Empty)
+        if (!AppPrefs.HasKey(_key))
         {
             secondTillUnlock = START_TIME;
         }
         else
         {
-            var _time = DateTime.Parse(_timeString) - DateTime.Now;
-            var _seconds = _time.TotalSeconds;
-            secondTillUnlock = (float)_seconds;
+            long currenttime = DateTime.UtcNow.Ticks;
+            long savedTime = long.Parse(PlayerPrefs.GetString(_key, currenttime.ToString()));
+            TimeSpan timeSpan = DateTime.UtcNow - new DateTime(savedTime);
+            secondTillUnlock = AppPrefs.GetFloat(_timeLeft);
+            secondTillUnlock -= (float)timeSpan.TotalSeconds;
         }
-
-        Debug.Log("secondTillUnlock   :" + secondTillUnlock);
     }
 }

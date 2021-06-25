@@ -13,7 +13,6 @@ public class ChipContainer : MonoBehaviour
     Transform containerTr;
 
     public List<Chip> ChipsList { get; private set; }
-    public List<Button> ButtonsList { get; private set; }
     public List<Sprite> ChipsSprites => chipsSprites;
 
     public Sprite GetSprite(int _index) 
@@ -31,13 +30,12 @@ public class ChipContainer : MonoBehaviour
             var _chipGO = Instantiate(chipPrefab, containerTr);
             var _chip = _chipGO.GetComponent<Chip>();
             var _btn = _chipGO.GetComponent<Button>();
-            _buttons.Add(_btn);
             _chips.Add(_chip);
             _chip.Setup(chipsSprites[i], i);
+
         }
 
         ChipsList = _chips;
+        Debug.Log("ChipContainer AWAKE");
     }
-
-
 }

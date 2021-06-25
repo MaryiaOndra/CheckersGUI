@@ -50,6 +50,11 @@ public static class AppPrefs
         PlayerPrefs.DeleteKey(_key);
     }
 
+    public static bool HasKey(string _key) 
+    {
+        return PlayerPrefs.HasKey(_key);
+    }
+
     public static void Save() 
     {
         PlayerPrefs.Save();

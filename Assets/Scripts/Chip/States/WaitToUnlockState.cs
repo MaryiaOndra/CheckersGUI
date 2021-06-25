@@ -18,6 +18,13 @@ public class WaitToUnlockState : BaseChipState
         timer.FinishTimeAction = GoToNextState;
     }
 
+    private void OnEnable()
+    {
+        timer.GetStartTime(Index);
+        timer.StartTimer();
+        timer.FinishTimeAction = GoToNextState;
+    }
+
     private void OnDisable()
     {
         timer.SetTime(Index);

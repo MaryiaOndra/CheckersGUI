@@ -14,40 +14,28 @@ public abstract class BaseChipBtn : MonoBehaviour
 
     protected abstract string PrefsKey { get; }
     protected abstract int DefoultIndx { get; }
-    public int Index { get; set; }
 
-    public UnityAction<BaseChipBtn> OnClickBtnAction;
+    public int Index 
+    {
+        get 
+        {
+            int _index;
+            if (!AppPrefs.HasKey(PrefsKey))
+                 _index = DefoultIndx;
+            else
+                _index = AppPrefs.GetInt(PrefsKey);
+
+            return _index;
+        }
+        set 
+        {
+            AppPrefs.SetInt(PrefsKey, value);
+        }
+    }
 
     private void Awake()
     {
         button = GetComponent<Button>();
-    }
-
-    public int SetChipButtonIndex() 
-    {
-        Index = GetChipIndex();
-
-        if (Index == 0)
-        {
-            Index = DefoultIndx;
-        }
-
-        return Index;
-    }
-
-    private void OnEnable()
-    {
-        button.onClick.AddListener(OnButtonClicked);
-    }
-
-    private void OnDisable()
-    {
-        button.onClick.RemoveListener(OnButtonClicked);
-    }
-
-    void OnButtonClicked() 
-    {
-        OnClickBtnAction.Invoke(this);
     }
 
     public void SetSprite(Sprite _sprite) 
@@ -55,19 +43,8 @@ public abstract class BaseChipBtn : MonoBehaviour
         chipSprite.sprite = _sprite;
     }
 
-    protected int GetChipIndex()
-    {
-        return AppPrefs.GetInt(PrefsKey);
-    }
-
-    public void SaveChipIndex(int _index)
-    {
-        AppPrefs.SetInt(PrefsKey, _index);
-    }
-
-    public void ResetChipIndexes()
+    public void ResetChipIndex()
     {
         Index = DefoultIndx;
     }
-
 }

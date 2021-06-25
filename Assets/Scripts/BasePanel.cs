@@ -18,7 +18,7 @@ public abstract class BasePanel : MonoBehaviour
         _closePanelListener.ClosePanelAction = DiactivatePanel;
     }
 
-    public void CloseWithAnimation()
+    public virtual void CloseWithAnimation()
     {
         panelAnimator.SetTrigger(CLOSE_TRIGGER);
         AppPrefs.Save();

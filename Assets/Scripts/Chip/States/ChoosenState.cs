@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ChoosenState : BaseChipState
 {
-    public override ChipsState ChipState => ChipsState.Choosen;
+    public override ChipsState ChipState => ChipsState.Selected;
 
     protected override void OnButtonPressed()
     {
-        NextStateAction.Invoke(ChipsState.Choosen);
+        NextStateAction.Invoke(ChipsState.Selected);
     }
 }

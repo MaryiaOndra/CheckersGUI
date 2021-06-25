@@ -548,7 +548,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5462468957571612726}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: GetBtnAction
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8107193210009225228}
+          m_ObjectArgumentAssemblyTypeName: BaseChipBtn, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8107193210009225228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1050,7 +1062,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5302662294111447470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: GetBtnAction
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8644969909527651951}
+          m_ObjectArgumentAssemblyTypeName: BaseChipBtn, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8644969909527651951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,8 +1630,6 @@ MonoBehaviour:
   music: 0
   sound: 0
   autoDiceRolling: 0
-  PlayerChipImg: {fileID: 7382813956266639179}
-  EnemyChipImg: {fileID: 7921199353835210356}
 --- !u!1 &4321950433234297744
 GameObject:
   m_ObjectHideFlags: 0

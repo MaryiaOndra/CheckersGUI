@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chipContainer: {fileID: 3405533415642164842}
-  chipStates: {fileID: 590812299289313118}
+  statesPanel: {fileID: 590812299289313118}
 --- !u!114 &590812299289313118
 MonoBehaviour:
   m_ObjectHideFlags: 0
