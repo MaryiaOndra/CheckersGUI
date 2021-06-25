@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelController : MonoBehaviour
+namespace CheckersGUi
 {
-    [SerializeField]
-    SettingsPanel settingsPanel;
-
-    [SerializeField]
-    SelectChipPanel chooseChipPanel;
-
-    private void Awake()
+    public class PanelController : MonoBehaviour
     {
-        settingsPanel.ChipSprites = chooseChipPanel.GetSpriteList();
+        [SerializeField]
+        SettingsPanel settingsPanel;
 
-        settingsPanel.ChangePanelAction = chooseChipPanel.ActivatePanel;
-        chooseChipPanel.ReturnToSettings = settingsPanel.ActivateAfterChange;
+        [SerializeField]
+        SelectChipPanel chooseChipPanel;
+
+        private void Awake()
+        {
+            settingsPanel.ChipSprites = chooseChipPanel.GetSpriteList();
+
+            settingsPanel.ChangePanelAction = chooseChipPanel.ActivatePanel;
+            chooseChipPanel.ReturnToSettings = settingsPanel.ActivateAfterChange;
+        }
     }
 }

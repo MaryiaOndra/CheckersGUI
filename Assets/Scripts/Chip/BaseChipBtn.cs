@@ -5,46 +5,49 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public abstract class BaseChipBtn : MonoBehaviour
+namespace CheckersGUi
 {
-    [SerializeField]
-    Image chipSprite;
-
-    Button button;
-
-    protected abstract string PrefsKey { get; }
-    protected abstract int DefoultIndx { get; }
-
-    public int Index 
+    public abstract class BaseChipBtn : MonoBehaviour
     {
-        get 
+        [SerializeField]
+        Image chipSprite;
+
+        Button button;
+
+        protected abstract string PrefsKey { get; }
+        protected abstract int DefoultIndx { get; }
+
+        public int Index
         {
-            int _index;
-            if (!AppPrefs.HasKey(PrefsKey))
-                 _index = DefoultIndx;
-            else
-                _index = AppPrefs.GetInt(PrefsKey);
+            get
+            {
+                int _index;
+                if (!AppPrefs.HasKey(PrefsKey))
+                    _index = DefoultIndx;
+                else
+                    _index = AppPrefs.GetInt(PrefsKey);
 
-            return _index;
+                return _index;
+            }
+            set
+            {
+                AppPrefs.SetInt(PrefsKey, value);
+            }
         }
-        set 
+
+        private void Awake()
         {
-            AppPrefs.SetInt(PrefsKey, value);
+            button = GetComponent<Button>();
         }
-    }
 
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-    }
+        public void SetSprite(Sprite _sprite)
+        {
+            chipSprite.sprite = _sprite;
+        }
 
-    public void SetSprite(Sprite _sprite) 
-    {
-        chipSprite.sprite = _sprite;
-    }
-
-    public void ResetChipIndex()
-    {
-        Index = DefoultIndx;
+        public void ResetChipIndex()
+        {
+            Index = DefoultIndx;
+        }
     }
 }

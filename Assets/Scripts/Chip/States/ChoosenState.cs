@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChoosenState : BaseChipState
+namespace CheckersGUi
 {
-    public override ChipsState ChipState => ChipsState.Selected;
-
-    protected override void OnButtonPressed()
+    public class ChoosenState : BaseChipState
     {
-        NextStateAction.Invoke(ChipsState.Selected);
+        public override ChipsState ChipState => ChipsState.Selected;
+
+        protected override void OnButtonPressed()
+        {
+            NextStateAction.Invoke(ChipsState.Selected);
+        }
     }
 }

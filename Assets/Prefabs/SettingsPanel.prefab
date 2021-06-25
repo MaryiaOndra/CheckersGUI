@@ -550,12 +550,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1100397490724322825}
-        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: CheckersGUi.SettingsPanel, Assembly-CSharp
         m_MethodName: GetBtnAction
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8107193210009225228}
-          m_ObjectArgumentAssemblyTypeName: BaseChipBtn, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: CheckersGUi.BaseChipBtn, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1064,12 +1064,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1100397490724322825}
-        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_TargetAssemblyTypeName: CheckersGUi.SettingsPanel, Assembly-CSharp
         m_MethodName: GetBtnAction
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8644969909527651951}
-          m_ObjectArgumentAssemblyTypeName: BaseChipBtn, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: CheckersGUi.BaseChipBtn, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1626,10 +1626,66 @@ MonoBehaviour:
   chipBtns:
   - {fileID: 8107193210009225228}
   - {fileID: 8644969909527651951}
-  controlSettings: 0
-  music: 0
-  sound: 0
-  autoDiceRolling: 0
+  SoundSettings:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: TEST
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  MusicSettings:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: TEST
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AutoRollDiceSettings:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: TEST
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ChipLightSettings:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1100397490724322825}
+        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+        m_MethodName: TEST
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4321950433234297744
 GameObject:
   m_ObjectHideFlags: 0

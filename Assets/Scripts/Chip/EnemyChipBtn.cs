@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChipBtn : BaseChipBtn
+namespace CheckersGUi
 {
-    const int ENEMY_CHIP_INDEX = 1;
+    public class EnemyChipBtn : BaseChipBtn
+    {
+        const int ENEMY_CHIP_INDEX = 1;
 
-    protected override string PrefsKey => PrefsKeys.EnemyChipIndx_;
+        protected override string PrefsKey => PrefsKeys.EnemyChipIndx_;
 
-    protected override int DefoultIndx => ENEMY_CHIP_INDEX;
+        protected override int DefoultIndx => ENEMY_CHIP_INDEX;
+    }
 }

@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnlockedState : BaseChipState
+namespace CheckersGUi
 {
-    public override ChipsState ChipState => ChipsState.Unlocked;
-
-    public override void Activate()
+    public class UnlockedState : BaseChipState
     {
-        base.Activate();
+        public override ChipsState ChipState => ChipsState.Unlocked;
 
-        ChangeChipState.Invoke();
-    }
+        public override void Activate()
+        {
+            base.Activate();
 
-    protected override void OnButtonPressed()
-    {
-        ChooseChipAction.Invoke();
-        NextStateAction.Invoke(ChipsState.Selected);
+            ChangeChipState.Invoke();
+        }
+
+        protected override void OnButtonPressed()
+        {
+            ChooseChipAction.Invoke();
+            NextStateAction.Invoke(ChipsState.Selected);
+        }
     }
 }

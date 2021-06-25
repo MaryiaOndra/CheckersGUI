@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockedState : BaseChipState
+namespace CheckersGUi
 {
-    public override ChipsState ChipState => ChipsState.Locked;
-
-    protected override void OnButtonPressed()
+    public class LockedState : BaseChipState
     {
-        NextStateAction.Invoke(ChipsState.WaitToUnlock);
+        public override ChipsState ChipState => ChipsState.Locked;
+
+        protected override void OnButtonPressed()
+        {
+            NextStateAction.Invoke(ChipsState.WaitToUnlock);
+        }
     }
 }

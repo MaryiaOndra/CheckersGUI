@@ -1,44 +1,52 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class BaseSwitcher : MonoBehaviour
+namespace CheckersGUi
 {
-    readonly int IS_ON_BOOL = Animator.StringToHash("IsOn");
-
-    Animator switcherAnim;
-
-    public Action<bool> ResetAction;
-
-    public abstract string ParamName { get; }
-    public virtual bool SwitcherState
+    public abstract class BaseSwitcher : MonoBehaviour
     {
-        get { return AppPrefs.GetBool(ParamName); }
-        set 
+        readonly int IS_ON_BOOL = Animator.StringToHash("IsOn");
+
+        Animator switcherAnim;
+
+        public Action<bool> ResetAction;
+        public Action<bool, string> SwitchSettingsAction;
+
+        public abstract string ParamName { get; }
+        public virtual bool SwitcherState
         {
-            AppPrefs.SetBool(ParamName, value);
-            if(switcherAnim) switcherAnim.SetBool(IS_ON_BOOL, value);
+            get { return AppPrefs.GetBool(ParamName); }
+            set
+            {
+                AppPrefs.SetBool(ParamName, value);
+                if (switcherAnim) switcherAnim.SetBool(IS_ON_BOOL, value);
+            }
         }
-    }
 
-    protected virtual void OnEnable()
-    {
-        switcherAnim.SetBool(IS_ON_BOOL, SwitcherState);
-    }
+        protected virtual void OnEnable()
+        {
+            switcherAnim.SetBool(IS_ON_BOOL, SwitcherState);
+        }
 
-    protected virtual void Awake()
-    {
-        switcherAnim = GetComponent<Animator>();
-        ResetAction = ResetParams;
-    }
+        protected virtual void Awake()
+        {
+            switcherAnim = GetComponent<Animator>();
+            ResetAction = ResetParams;
+        }
 
-    public virtual void OnSwitch()
-    {
-        var _value = SwitcherState == true ? false : true;
-        SwitcherState = _value;
-    }
+        public virtual void OnSwitch()
+        {
+            var _value = SwitcherState == true ? false : true;
+            SwitcherState = _value;
 
-    public virtual void ResetParams( bool _value)
-    {
-        SwitcherState = _value;        
+            SwitchSettingsAction.Invoke(_value, ParamName);
+        }
+
+        public virtual void ResetParams(bool _value)
+        {
+            SwitcherState = _value;
+            SwitchSettingsAction.Invoke(_value, ParamName);
+        }
     }
 }

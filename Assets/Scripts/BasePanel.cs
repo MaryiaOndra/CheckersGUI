@@ -2,36 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BasePanel : MonoBehaviour
+namespace CheckersGUi
 {
-    readonly int CLOSE_TRIGGER = Animator.StringToHash("Close");
-    Animator panelAnimator;
-
-    protected virtual void Awake()
+    public abstract class BasePanel : MonoBehaviour
     {
-        panelAnimator = GetComponent<Animator>();
-    }
+        readonly int CLOSE_TRIGGER = Animator.StringToHash("Close");
+        Animator panelAnimator;
 
-    private void OnEnable()
-    {
-        var _closePanelListener = panelAnimator.GetBehaviour<ClosePanelListener>();
-        _closePanelListener.ClosePanelAction = DiactivatePanel;
-    }
+        protected virtual void Awake()
+        {
+            panelAnimator = GetComponent<Animator>();
+        }
 
-    public virtual void CloseWithAnimation()
-    {
-        panelAnimator.SetTrigger(CLOSE_TRIGGER);
-        AppPrefs.Save();
-    }
+        private void OnEnable()
+        {
+            var _closePanelListener = panelAnimator.GetBehaviour<ClosePanelListener>();
+            _closePanelListener.ClosePanelAction = DiactivatePanel;
+        }
 
-    public virtual void DiactivatePanel()
-    {
-        gameObject.SetActive(false);
-        AppPrefs.Save();
-    }
+        public virtual void CloseWithAnimation()
+        {
+            panelAnimator.SetTrigger(CLOSE_TRIGGER);
+            AppPrefs.Save();
+        }
 
-    public virtual void ActivatePanel() 
-    {
-        gameObject.SetActive(true);
+        public virtual void DiactivatePanel()
+        {
+            gameObject.SetActive(false);
+            AppPrefs.Save();
+        }
+
+        public virtual void ActivatePanel()
+        {
+            gameObject.SetActive(true);
+        }
     }
 }
