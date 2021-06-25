@@ -10,6 +10,6 @@ public static class PrefsKeys
     public static string Chip_ = "Chip_";
     public static string DiceState_ = "DiceState_";
     public static string Time_ = "Time_";
-    public const string PlayerChip_ = "PlayerChip_";
-    public const string EnemyChip_ = "EnemyChip_";
+    public const string PlayerChipIndx_ = "PlayerChip_";
+    public const string EnemyChipIndx_ = "EnemyChip_";
 }

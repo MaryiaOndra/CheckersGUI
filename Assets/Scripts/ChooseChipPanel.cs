@@ -8,14 +8,23 @@ public class ChooseChipPanel : BasePanel
     [SerializeField]
     ChipContainer chipContainer;
 
+    int chosenChipIndex;
     public Sprite SpriteToChange { get; private set; }
 
-    public void ActivatePanel( int _index, Sprite _sprite)
+    public Action<Sprite> ReturnToSettings;
+    public Action ChangeSpriteAction;
+
+    internal List<Sprite> GetSpriteList()
+    {
+        return chipContainer.ChipsSprites;
+    }
+
+    public void ActivatePanel( int _index)
     {
         base.ActivatePanel();
-                
-        ResetShipsState(chipContainer.ChipsList, _index);
-        SpriteToChange = _sprite;
+
+        chosenChipIndex = _index;
+        ResetChipsState(chipContainer.ChipsList, _index);
         chipContainer.ChipsList.ForEach(_ch => _ch.OnChosen = OnChoosenChip);
     }
 
@@ -34,7 +43,7 @@ public class ChooseChipPanel : BasePanel
             _chip.OnNextStateRequest(ChipsState.Unlocked);
     }
 
-    public void ResetShipsState(List<Chip> _chips, int _index)
+    public void ResetChipsState(List<Chip> _chips, int _index)
     {
         for (int i = 0; i < _chips.Count; i++)
         {
@@ -42,8 +51,11 @@ public class ChooseChipPanel : BasePanel
         }
     }
 
-
-
+    public override void DiactivatePanel()
+    {
+        ReturnToSettings.Invoke(SpriteToChange);
+        base.DiactivatePanel();
+    }
 }
 
 public enum ChipsState

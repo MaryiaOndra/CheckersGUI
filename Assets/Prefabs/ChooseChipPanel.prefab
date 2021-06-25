@@ -720,7 +720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 299.99997}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 27, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7149935145388288294
@@ -988,11 +988,11 @@ PrefabInstance:
       objectReference: {fileID: 3131065827392068231}
     - target: {fileID: 2214370123081093235, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClosePanel
+      value: DiactivatePanel
       objectReference: {fileID: 0}
     - target: {fileID: 2214370123081093235, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BasePanel, Assembly-CSharp
+      value: ChooseChipPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2214370123081093235, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

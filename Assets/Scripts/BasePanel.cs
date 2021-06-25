@@ -18,17 +18,17 @@ public abstract class BasePanel : MonoBehaviour
         _closePanelListener.ClosePanelAction = DiactivatePanel;
     }
 
-    public void ClosePanel()
+    public void CloseWithAnimation()
     {
         panelAnimator.SetTrigger(CLOSE_TRIGGER);
     }
 
-    public void DiactivatePanel()
+    public virtual void DiactivatePanel()
     {
         gameObject.SetActive(false);
     }
 
-    public void ActivatePanel() 
+    public virtual void ActivatePanel() 
     {
         gameObject.SetActive(true);
     }

@@ -12,6 +12,9 @@ public class PanelController : MonoBehaviour
 
     private void Awake()
     {
+        settingsPanel.ChipSprites = chooseChipPanel.GetSpriteList();
+
         settingsPanel.ChangePanelAction = chooseChipPanel.ActivatePanel;
+        //chooseChipPanel.ReturnToSettings = settingsPanel.ActivatePanel;
     }
 }

@@ -14,6 +14,7 @@ public class ChipContainer : MonoBehaviour
 
     public List<Chip> ChipsList { get; private set; }
     public List<Button> ButtonsList { get; private set; }
+    public List<Sprite> ChipsSprites => chipsSprites;
 
     public Sprite GetSprite(int _index) 
     {

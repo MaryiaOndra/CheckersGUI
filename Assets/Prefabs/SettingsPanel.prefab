@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 6370107436371861024}
   - component: {fileID: 5462468957571612726}
   - component: {fileID: 3852302600886754718}
+  - component: {fileID: 8107193210009225228}
   m_Layer: 5
   m_Name: PlayerChipBtn
   m_TagString: Untagged
@@ -547,19 +548,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5462468957571612726}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1100397490724322825}
-        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
-        m_MethodName: ChoosePlayerChip
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &8107193210009225228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166756223360817664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1765926f8d399d440821564853c021b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chipSprite: {fileID: 7382813956266639179}
 --- !u!1 &1865732690788006269
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +941,7 @@ GameObject:
   - component: {fileID: 2303680845488699251}
   - component: {fileID: 5302662294111447470}
   - component: {fileID: 6482928099108276896}
+  - component: {fileID: 8644969909527651951}
   m_Layer: 5
   m_Name: EnemyChipBtn
   m_TagString: Untagged
@@ -1047,19 +1050,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5302662294111447470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1100397490724322825}
-        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
-        m_MethodName: ChooseEnemyChip
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &8644969909527651951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232747185036102710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14091a6adcc3fd418a62c0976593415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chipSprite: {fileID: 7921199353835210356}
 --- !u!1 &3421819660758171554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,12 +1599,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7a88431039d2a4680da7469901ccb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipBtns:
+  - {fileID: 8107193210009225228}
+  - {fileID: 8644969909527651951}
   controlSettings: 0
   music: 0
   sound: 0
   autoDiceRolling: 0
-  PlayerChipImg: {fileID: 5462468957571612726}
-  EnemyChipImg: {fileID: 5302662294111447470}
+  PlayerChipImg: {fileID: 7382813956266639179}
+  EnemyChipImg: {fileID: 7921199353835210356}
 --- !u!1 &4321950433234297744
 GameObject:
   m_ObjectHideFlags: 0
@@ -3027,7 +3034,7 @@ PrefabInstance:
       objectReference: {fileID: 1100397490724322825}
     - target: {fileID: 2214370123081093235, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClosePanel
+      value: CloseWithAnimation
       objectReference: {fileID: 0}
     - target: {fileID: 2214370123081093235, guid: ce181066b2546114b9de5c371fb9c720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
