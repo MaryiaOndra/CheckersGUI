@@ -15,6 +15,6 @@ public class PanelController : MonoBehaviour
         settingsPanel.ChipSprites = chooseChipPanel.GetSpriteList();
 
         settingsPanel.ChangePanelAction = chooseChipPanel.ActivatePanel;
-        //chooseChipPanel.ReturnToSettings = settingsPanel.ActivatePanel;
+        chooseChipPanel.ReturnToSettings = settingsPanel.ActivateAfterChange;
     }
 }

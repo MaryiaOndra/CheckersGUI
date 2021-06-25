@@ -32,7 +32,6 @@ public abstract class BaseChipBtn : MonoBehaviour
             Index = DefoultIndx;
         }
 
-        Debug.Log("Index" + Index);
         return Index;
     }
 

@@ -12,6 +12,7 @@ public abstract class BaseChipState : MonoBehaviour
     Button button;
 
     public Sprite ChipSprite => chipImg.sprite;
+    public int Index { get; private set; }
     public  abstract ChipsState ChipState { get; }
     public Action<ChipsState> NextStateAction { get; internal set; }
     public Action ChooseChipAction { get; internal set; }
@@ -27,10 +28,11 @@ public abstract class BaseChipState : MonoBehaviour
         button.onClick.RemoveListener(OnButtonPressed);
     }
 
-    public void Setup(Sprite _sprite, Button _button) 
+    public void Setup(Sprite _sprite, Button _button, int _index) 
     {
         chipImg.sprite = _sprite;
         button = _button;
+        Index = _index;
     }
 
     public virtual void Activate()

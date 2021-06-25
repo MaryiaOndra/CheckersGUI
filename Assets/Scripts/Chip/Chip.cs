@@ -10,9 +10,9 @@ public class Chip : MonoBehaviour
 
     List<BaseChipState> chipStates;
     BaseChipState currentState;
-    int chipIndex;
     Button chipBtn;
 
+    public int ChipIndex { get; private set; }
     public BaseChipState CurrentState => currentState;
 
     public Action<Chip> OnChosen;
@@ -21,22 +21,24 @@ public class Chip : MonoBehaviour
     {
         chipStates = new List<BaseChipState>(GetComponentsInChildren<BaseChipState>(true));
         chipBtn = GetComponent<Button>();
-        chipIndex = _index;
+        ChipIndex = _index;
 
         chipStates.ForEach(_state =>
         {
-            _state.Setup(_chipSprite, chipBtn);
+            _state.Setup(_chipSprite, chipBtn, _index);
             _state.NextStateAction = OnNextStateRequest;
-            _state.ChooseChipAction = OnChooseAction;
+            _state.ChooseChipAction = OnChooseAction;            
         });
 
-        currentState = chipStates.Find(_state => _state.ChipState == ChipsState.Locked);
+        var _chipState = GetChipsState(_index);
+
+        currentState = chipStates.Find(_state => _state.ChipState == _chipState);
         currentState.Activate();
     }
 
     public void OnChooseAction()
     {
-        SetChipsState(chipIndex, currentState.ChipState);
+        SetChipsState(ChipIndex, currentState.ChipState);
         OnChosen.Invoke(this);
     }
 
@@ -54,7 +56,7 @@ public class Chip : MonoBehaviour
         else
             currentState.NextStateAction.Invoke(ChipsState.Unlocked);
 
-        if (_indexToCheck == chipIndex)
+        if (_indexToCheck == ChipIndex)
             currentState.NextStateAction.Invoke(ChipsState.Choosen);
     }
 

@@ -8,6 +8,6 @@ public class LockedState : BaseChipState
 
     protected override void OnButtonPressed()
     {
-        throw new System.NotImplementedException();
+        NextStateAction.Invoke(ChipsState.WaitToUnlock);
     }
 }

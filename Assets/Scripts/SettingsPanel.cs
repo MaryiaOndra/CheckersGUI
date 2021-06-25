@@ -54,19 +54,16 @@ public class SettingsPanel : BasePanel
 
     public override void ActivatePanel()
     {
-        Debug.Log("ActivatePanel");
-
         for (int i = 0; i < chipBtns.Count; i++)
         {            
             var _index = chipBtns[i].SetChipButtonIndex();
-            Debug.Log("chipBtns[i].Index;" + _index);
-
             var _sprite = ChipSprites[_index];
             chipBtns[i].SetSprite(_sprite);
         }       
         
         base.ActivatePanel();
     }
+
 
     public void ResetSettingsData()
     {
@@ -87,6 +84,7 @@ public class SettingsPanel : BasePanel
     void GetBtnAction(BaseChipBtn _baseChipBtn) 
     {
         activeChipIndex = _baseChipBtn.Index;
+        ChangePanelAction.Invoke(activeChipIndex);
     }
 
     //public void ChooseEnemyChip() 
@@ -105,11 +103,12 @@ public class SettingsPanel : BasePanel
     //    DiactivatePanel();
     //}
 
+    public void ActivateAfterChange(int _newIndex) 
+    {
+        base.ActivatePanel();
 
-
-    //public void ActivatePanel(Sprite _sprite) 
-    //{
-    //    base.ActivatePanel();
-    //    SetSprite(_sprite);
-    //}
+        var _changeChip = chipBtns.Find(_ch => _ch.Index == activeChipIndex);
+        var _sprite = ChipSprites[_newIndex];
+        _changeChip.SetSprite(_sprite);
+    }
 }

@@ -21,11 +21,13 @@ public abstract class BasePanel : MonoBehaviour
     public void CloseWithAnimation()
     {
         panelAnimator.SetTrigger(CLOSE_TRIGGER);
+        AppPrefs.Save();
     }
 
     public virtual void DiactivatePanel()
     {
         gameObject.SetActive(false);
+        AppPrefs.Save();
     }
 
     public virtual void ActivatePanel() 
